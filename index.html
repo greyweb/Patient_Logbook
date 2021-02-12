@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Patient Logbook</title>
+    <link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/icon.ico" type="image/x-icon" />
+    <style>
+        body {
+            margin: 0;
+            position: relative;
+            font-size: 20px;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        @font-face {
+            font-family: "samarkhan";
+            src: url(./font/samarkhan.ttf);
+        }
+
+        ul.topnav h5 {
+            text-decoration: none;
+            color: white;
+            padding: 0px;
+            margin: 0px 50px;
+            height: 60px;
+            display: inline-block;
+            font-family: samarkhan;
+        }
+
+        ul.topnav {
+            list-style-type: none;
+            width: 100%;
+            background-color: #f15652;
+            margin: 0;
+            top: 0;
+            padding: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        ul.topnav li a {
+            display: block;
+            position: relative;
+            right: 0;
+            color: white;
+            text-align: center;
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0px;
+            padding: 20px 10px 20px 10px;
+            ;
+            font-size: 18px;
+            /* height: 80px; */
+            text-decoration: none;
+        }
+
+        label {
+            display: inline-block;
+            width: 160px;
+        }
+
+        input {
+            display: inline-block;
+            background-color: #FFF;
+            height: 30px;
+            width: 150px;
+            border: 2px solid tomato;
+        }
+
+        ul.topnav li a:hover {
+            background-color: darksalmon;
+        }
+
+        ul.topnav li {
+            float: right;
+        }
+
+        .title {
+            color: black;
+            margin: auto;
+            width: 30%;
+        }
+
+        .container {
+            width: 80%;
+            padding-right: 45px;
+            padding-left: 45px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .underline {
+            background-color: #f15652;
+            height: 3px;
+            width: 5%;
+            margin: auto
+        }
+
+        h1 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            text-align: center;
+            color: #000;
+            font-size: 40px;
+            font-weight: 50;
+            margin: 20px 0px;
+        }
+
+        .button {
+            display: inline-block;
+            border: none;
+            outline: none;
+            padding: 1rem 2rem;
+            margin: 0;
+            text-decoration: none;
+            background: tomato;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background 250ms ease-in-out, transform 150ms ease;
+            text-align: center;
+            border-radius: 5px;
+            margin: auto;
+            height: 30px;
+            width: 100px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        select {
+            margin: 5px 5px 5px 0px;
+            width: 250px;
+            padding: 15px 5px 15px 5px;
+            font-size: 16px;
+            border: 2px solid tomato;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: url(https://image.flaticon.com/icons/svg/1098/1098150.svg);
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+            background-position: center right;
+            background-origin: content-box;
+            background-color: #FFF;
+        }
+
+        select::-ms-expand {
+            display: none;
+            /* remove default arrow on ie10 and ie11 */
+        }
+
+        @media screen and (min-width:0\0) {
+            select {
+                background: none\9;
+                padding: 5px\9;
+            }
+        }
+
+        button:hover,
+        button:focus {
+            background: #f15652;
+            color: #FFF;
+        }
+
+        button:focus {
+            outline: 1px solid #fff;
+            outline-offset: -4px;
+        }
+
+        button:active {
+            transform: scale(0.99);
+        }
+
+        .divider {
+            margin-top: auto;
+            margin-bottom: auto;
+            height: 60%;
+            background-color: #f15652;
+        }
+
+        p {
+            font-family: 'IBM Plex Sans', sans-serif;
+            text-align: center;
+        }
+
+        
+
+        .footer {
+            font-size: 15px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            background-color: #000;
+            padding: 0px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <ul class="topnav" id="navbar" style="background-color: #f15652">
+        <h5 href="#" style="font-family:samarkhan; font-weight: 400; font-size: 50px;">Patient Logbook</h5>
+        <li style="margin-right: 30px;"><a href="./data.php">Search</a></li>
+    </ul>
+    <div style="margin-top: 0px;">
+        <h1>Patient Details</h1>
+        <div style="height: 40px;"></div>
+        <div class="container;" style="padding-left: 35%;">
+            <!-- //padding-top:30px; -->
+            <div style="display: inline-block;width: 75%;"> 
+<form id="userD" action="./connection.php" method="post">
+    <label for="name">Name:<span style="color: red">*</span></label>
+    <input type="text" name="name" id="nameInput" style="width: 250px;" required>
+    <br><br>
+    <label for="phone">Phone Number:<span style="color: red">*</span></label>
+    <input type="text" name="phone" id="phoneInput" style="width: 250px;" required>
+    <br><br>
+    <label for="age">Age:<span style="color: red">*</span></label>
+    <input type="number" name="age" id="ageInput" style="width: 250px;" required>
+    <br><br>
+    <label for="sex">Gender:<span style="color: red">*</span></label></label>
+    <br>
+    <input type="radio" name="gender" value="M" >Male
+    <br>
+    <input type="radio" name="gender" value="F"  >Female
+    <br>
+    <input type="radio" name="gender" value="O" >Others
+    <br><br>
+    <label for="mh">Medical History &nbsp<span style="color: red">*</span></label>
+    <textarea style="border: 2px solid tomato;width: 250px;" rows="4" cols="30" id="medInput" name="med" form="userD" required></textarea>
+    <!-- <input type="text" name="med" id="medInput"style="width: 250px;" required> -->
+
+    <br><br>
+
+    <label for="inv">Investgations &nbsp Done:<span style="color: red">*</span></label>
+    <input type="text" name="inv" id="invInput"style="width: 250px;" required>
+     <br><br>
+
+     <label for="diag">Diagnosis: &nbsp<span style="color: red">*</span></label>
+     <textarea style="border: 2px solid tomato;width: 250px;" rows="4" cols="30" id="diagInput" name="diag" form="userD" required></textarea>
+     <!-- <input type="text" name="diag" id="diagInput"style="width: 250px;" required> -->
+     <!-- <input type="submit" name="submit" value="Submit"style="width: 250px;">   -->
+</form>
+<br><br>
+<button class ="button" type="submit" form="userD" value="Submit"style="margin-left: 20%;padding-top: 16px;padding-bottom: 32px;padding-left: 64px;padding-right: 128px;" >Register</button>
+</div>
+<div style="height: 125px;"></div>
+<footer>
+    <div class="footer" style="left: 0px;">
+        <div style="width: 40%;float:left; color: white;height: 100%;margin-left: 10%;position: relative;">
+            <h2
+                style="font-family: 'Roboto';font-weight: 400;letter-spacing: 2px;margin-bottom: 25px;margin-top: 25px;">
+                <span class="fas fa-heart" id="love"></span> Meenakshi Dental Medicine Center </h2>
+        </div>
+</footer>
+</body>
+
+</body>
+
+
+</html>
